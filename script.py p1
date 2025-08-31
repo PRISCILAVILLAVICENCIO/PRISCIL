@@ -1,0 +1,38 @@
+# Definimos una matriz con valores repetidos
+matriz_con_duplicados = [[1, 2, 3],
+                        [4, 5, 2],
+                        [7, 2, 9]]
+
+# Función para buscar todas las ocurrencias de un valor
+def buscar_multiples_ocurrencias(matriz, valor):
+    """
+    Busca todas las ocurrencias de un valor en una matriz y devuelve sus posiciones.
+
+    Args:
+        matriz (list): La matriz en la que se buscará.
+        valor (any): El valor a buscar.
+
+    Returns:
+        list: Una lista de tuplas con las coordenadas (fila, columna)
+              de cada ocurrencia del valor.
+    """
+    posiciones = []
+    for fila_idx, fila in enumerate(matriz):
+        for columna_idx, elemento in enumerate(fila):
+            if elemento == valor:
+                posiciones.append((fila_idx, columna_idx))
+    return posiciones
+
+# Valor que deseamos buscar
+valor_a_buscar = 2
+
+# Realizamos la búsqueda
+resultados = buscar_multiples_ocurrencias(matriz_con_duplicados, valor_a_buscar)
+
+# Mostramos el resultado
+if resultados:
+    print(f" El valor {valor_a_buscar} se encontró en las siguientes posiciones:")
+    for pos in resultados:
+        print(f"   - Fila: {pos[0]}, Columna: {pos[1]}")
+else:
+    print(f" El valor {valor_a_buscar} no se encontró en la matriz.")
