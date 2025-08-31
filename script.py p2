@@ -1,0 +1,53 @@
+# Definimos la matriz
+matriz = [[9, 2, 8],
+          [4, 7, 6],
+          [1, 5, 3]]
+
+print("Matriz original:")
+for fila in matriz:
+    print(fila)
+
+# Función para ordenar una fila o columna
+def ordenar_linea(matriz, indice, tipo="fila"):
+    """
+    Ordena una fila o columna específica de una matriz en orden ascendente.
+
+    Args:
+        matriz (list): La matriz que contiene la línea a ordenar.
+        indice (int): El índice de la fila o columna a ordenar.
+        tipo (str): "fila" para ordenar una fila, "columna" para ordenar una columna.
+
+    Returns:
+        list: La matriz con la línea ordenada.
+    """
+    if tipo == "fila":
+        if 0 <= indice < len(matriz):
+            matriz[indice].sort()
+    elif tipo == "columna":
+        if 0 <= indice < len(matriz[0]):
+            columna = [matriz[i][indice] for i in range(len(matriz))]
+            columna.sort()
+            for i in range(len(matriz)):
+                matriz[i][indice] = columna[i]
+    else:
+        print(" Tipo de ordenación no válido. Use 'fila' o 'columna'.")
+
+    return matriz
+
+# Ejemplo de ordenación de fila
+matriz_ordenada_fila = [row[:] for row in matriz]  # Copia la matriz
+indice_fila_a_ordenar = 0
+ordenar_linea(matriz_ordenada_fila, indice_fila_a_ordenar, tipo="fila")
+
+print("\nMatriz con la primera fila ordenada:")
+for fila in matriz_ordenada_fila:
+    print(fila)
+
+# Ejemplo de ordenación de columna
+matriz_ordenada_columna = [row[:] for row in matriz]  # Copia la matriz
+indice_columna_a_ordenar = 2
+ordenar_linea(matriz_ordenada_columna, indice_columna_a_ordenar, tipo="columna")
+
+print("\nMatriz con la última columna ordenada:")
+for fila in matriz_ordenada_columna:
+    print(fila)
