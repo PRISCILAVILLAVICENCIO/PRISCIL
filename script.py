@@ -1,0 +1,138 @@
+# Crear una matriz 3D para almacenar datos de temperaturas
+# Primera dimensión: Ciudades (3 ciudades)
+# Segunda dimensión: Semanas (4 semanas)
+# Tercera dimensión: Días de la semana (7 días)
+temperaturas = [
+    [  # Ciudad 1: Galápagos
+        [  # Semana 1
+            {"dia": "Lunes", "temperatura": 25},
+            {"dia": "Martes", "temperatura": 26},
+            {"dia": "Miercoles", "temperatura": 25},
+            {"dia": "Jueves", "temperatura": 27},
+            {"dia": "Viernes", "temperatura": 28},
+            {"dia": "Sabado", "temperatura": 28},
+            {"dia": "Domingo", "temperatura": 26}
+        ],
+        [  # Semana 2
+            {"dia": "Lunes", "temperatura": 24},
+            {"dia": "Martes", "temperatura": 25},
+            {"dia": "Miercoles", "temperatura": 26},
+            {"dia": "Jueves", "temperatura": 27},
+            {"dia": "Viernes", "temperatura": 26},
+            {"dia": "Sabado", "temperatura": 25},
+            {"dia": "Domingo", "temperatura": 27}
+        ],
+        [  # Semana 3
+            {"dia": "Lunes", "temperatura": 26},
+            {"dia": "Martes", "temperatura": 27},
+            {"dia": "Miercoles", "temperatura": 28},
+            {"dia": "Jueves", "temperatura": 26},
+            {"dia": "Viernes", "temperatura": 25},
+            {"dia": "Sabado", "temperatura": 24},
+            {"dia": "Domingo", "temperatura": 25}
+        ],
+        [  # Semana 4
+            {"dia": "Lunes", "temperatura": 27},
+            {"dia": "Martes", "temperatura": 28},
+            {"dia": "Miercoles", "temperatura": 26},
+            {"dia": "Jueves", "temperatura": 25},
+            {"dia": "Viernes", "temperatura": 24},
+            {"dia": "Sabado", "temperatura": 25},
+            {"dia": "Domingo", "temperatura": 26}
+        ]
+    ],
+    [  # Ciudad 2: Cuenca
+        [  # Semana 1
+            {"dia": "Lunes", "temperatura": 14},
+            {"dia": "Martes", "temperatura": 15},
+            {"dia": "Miercoles", "temperatura": 13},
+            {"dia": "Jueves", "temperatura": 16},
+            {"dia": "Viernes", "temperatura": 15},
+            {"dia": "Sabado", "temperatura": 14},
+            {"dia": "Domingo", "temperatura": 13}
+        ],
+        [  # Semana 2
+            {"dia": "Lunes", "temperatura": 15},
+            {"dia": "Martes", "temperatura": 16},
+            {"dia": "Miercoles", "temperatura": 14},
+            {"dia": "Jueves", "temperatura": 17},
+            {"dia": "Viernes", "temperatura": 16},
+            {"dia": "Sabado", "temperatura": 15},
+            {"dia": "Domingo", "temperatura": 14}
+        ],
+        [  # Semana 3
+            {"dia": "Lunes", "temperatura": 13},
+            {"dia": "Martes", "temperatura": 14},
+            {"dia": "Miercoles", "temperatura": 15},
+            {"dia": "Jueves", "temperatura": 13},
+            {"dia": "Viernes", "temperatura": 16},
+            {"dia": "Sabado", "temperatura": 15},
+            {"dia": "Domingo", "temperatura": 14}
+        ],
+        [  # Semana 4
+            {"dia": "Lunes", "temperatura": 16},
+            {"dia": "Martes", "temperatura": 15},
+            {"dia": "Miercoles", "temperatura": 14},
+            {"dia": "Jueves", "temperatura": 17},
+            {"dia": "Viernes", "temperatura": 16},
+            {"dia": "Sabado", "temperatura": 15},
+            {"dia": "Domingo", "temperatura": 14}
+        ]
+    ],
+    [  # Ciudad 3: Baños
+        [  # Semana 1
+            {"dia": "Lunes", "temperatura": 18},
+            {"dia": "Martes", "temperatura": 19},
+            {"dia": "Miercoles", "temperatura": 18},
+            {"dia": "Jueves", "temperatura": 20},
+            {"dia": "Viernes", "temperatura": 21},
+            {"dia": "Sabado", "temperatura": 20},
+            {"dia": "Domingo", "temperatura": 19}
+        ],
+        [  # Semana 2
+            {"dia": "Lunes", "temperatura": 19},
+            {"dia": "Martes", "temperatura": 20},
+            {"dia": "Miercoles", "temperatura": 19},
+            {"dia": "Jueves", "temperatura": 21},
+            {"dia": "Viernes", "temperatura": 20},
+            {"dia": "Sabado", "temperatura": 19},
+            {"dia": "Domingo", "temperatura": 18}
+        ],
+        [  # Semana 3
+            {"dia": "Lunes", "temperatura": 20},
+            {"dia": "Martes", "temperatura": 21},
+            {"dia": "Miercoles", "temperatura": 20},
+            {"dia": "Jueves", "temperatura": 22},
+            {"dia": "Viernes", "temperatura": 21},
+            {"dia": "Sabado", "temperatura": 20},
+            {"dia": "Domingo", "temperatura": 19}
+        ],
+        [  # Semana 4
+            {"dia": "Lunes", "temperatura": 18},
+            {"dia": "Martes", "temperatura": 19},
+            {"dia": "Miercoles", "temperatura": 18},
+            {"dia": "Jueves", "temperatura": 20},
+            {"dia": "Viernes", "temperatura": 19},
+            {"dia": "Sabado", "temperatura": 18},
+            {"dia": "Domingo", "temperatura": 17}
+        ]
+    ]
+]
+
+# Calcular el promedio de temperaturas para cada ciudad y semana
+ciudades = ["Galápagos", "Cuenca", "Baños"]
+
+print("Promedio de temperaturas por ciudad y semana:\n")
+
+for ciudad_idx, ciudad_datos in enumerate(temperaturas):
+    print(f"--- Promedios para {ciudades[ciudad_idx]} ---")
+    for semana_idx, semana_datos in enumerate(ciudad_datos):
+        # Extraer solo las temperaturas de la lista de diccionarios
+        temperaturas_semana = [dia["temperatura"] for dia in semana_datos]
+
+        # Calcular el promedio usando la suma y la cantidad de días
+        promedio_semana = sum(temperaturas_semana) / len(temperaturas_semana)
+
+        # Mostrar el resultado
+        print(f"  > El promedio de la semana {semana_idx + 1} es: {promedio_semana:.2f}°C")
+    print("\n")
